@@ -21,7 +21,7 @@ echo
 echo
 echo "##########################################"
 echo "####### CONFIGURING ADMIN ACCOUNT ########"
-echo "############# FOR KIBANA  ################"
+echo "####### FOR KIBANA / VELOCIRAPTOR ########"
 echo "##########################################"
 echo
 echo
@@ -45,7 +45,7 @@ echo "####### CONFIGURING HOSTNAME S1EM ########"
 echo "##########################################"
 echo
 echo
-read -r -p "Enter the hostname of the solution S1EM (ex: s1em.cyber.local):" s1em_hostname
+read -r -p "Enter the hostname or IP of the solution S1EM (ex: s1em.cyber.local or 192.168.0.1):" s1em_hostname
 s1em_hostname=$s1em_hostname
 sed -i "s|s1em_hostname|$s1em_hostname|g" docker-compose.yml homer/config.yml .env
 echo

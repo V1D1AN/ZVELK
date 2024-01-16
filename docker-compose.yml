@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   certificates:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELK}
     container_name: certificates
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
@@ -60,7 +60,7 @@ services:
       - zvelk
       
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELK}
     container_name: es01
     hostname: es01
     restart: always
@@ -102,7 +102,7 @@ services:
         hard: -1
       
   kibana:
-    image: 'docker.elastic.co/kibana/kibana:7.17.10'
+    image: docker.elastic.co/kibana/kibana:${ELK}
     container_name: kibana
     hostname: kibana
     restart: always
@@ -130,7 +130,7 @@ services:
       - zvelk
 
   logstash:
-    image: 'docker.elastic.co/logstash/logstash:7.17.10'
+    image: docker.elastic.co/logstash/logstash:${ELK}
     container_name: logstash
     hostname: logstash
     restart: always
