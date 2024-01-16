@@ -58,7 +58,7 @@ echo
 read -p "Enter the RAM in Go of node elasticsearch [2]:" master_node
 master_node=${master_node:-2}
 sed -i "s|RAM_MASTER|$master_node|g" docker-compose.yml
-sed -i "s|changeme|$password|g" .env kibana/kibana.yml logstash/config/logstash.yml logstash/pipeline/zircolite/300_output_zircolite.conf 
+sed -i "s|changeme|$password|g" .env kibana/kibana.yml logstash/config/logstash.yml logstash/pipeline/zircolite/300_output_zircolite.conf logstash/pipeline/velociraptor/300_output_velociraptor.conf
 echo
 echo
 echo "##########################################"

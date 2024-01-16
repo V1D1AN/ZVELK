@@ -1,12 +1,13 @@
 #!/bin/bash
-
-/usr/bin/inotifywait -m --format '%f' -e close_write /pcap/ /evtx/ | while read FILE
+EXTRACTION_DIR="/extracted/"
+/usr/bin/inotifywait -m --format '%f' -e close_write /evtx/ /velociraptor/ | while read FILE
 do
-    if [[ "$FILE" == *".pcap" ]]; then
-        docker exec suricata sh -c "suricata --runmode=autofp -c /etc/suricata/suricata.yaml -l /var/log/suricata -r /pcap/$FILE";
-        docker exec zeek sh -c "zeek -C local -r /pcap/$FILE";
-        rm -fr /pcap/$FILE;
+    if [[ "$FILE" == *".zip" ]]; then
+        unzip -j "/velociraptor/$FILE" -d "$EXTRACTION_DIR"
+        find $EXTRACTION_DIR -type f ! -name "*.json" -exec rm {} +
+        rm -f /velociraptor/$FILE
     elif [[ "$FILE" == *".evtx" ]]; then
-        docker run --rm --name zircolite --network instance_name_zvelk -v instance_name_zircolite:/case/ docker.io/wagga40/zircolite:latest --ruleset rules/rules_windows_sysmon_full.json --evtx /case/ --outfile /case/detected_events.json --remote 'https://es01:9200' --index 'zircolite-whatever' --eslogin "${ZIRCOLITE_USER}" --espass "${ZIRCOLITE_PASSWORD}" --forwardall --remove-events --nolog;
+        docker run --rm --name zircolite --network test_zvelk -v test_zircolite:/case/ docker.io/wagga40/zircolite:latest --ruleset rules/rules_windows_sysmon_full.json --evtx /case/ --outfile /case/detected_events.json --remote 'https://es01:9200' --index 'zircolite-whatever' --eslogin "${ZIRCOLITE_USER}" --espass "${ZIRCOLITE_PASSWORD}" --forwardall --remove-events --nolog
     fi
 done;
+

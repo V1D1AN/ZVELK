@@ -1,0 +1,9 @@
+{
+  "index_patterns": ["dfir-*"],
+  "settings": {
+    "index.mapping.total_fields.limit": 10000
+  },
+  "mappings": {
+  }
+}
+

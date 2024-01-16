@@ -1,3 +1,6 @@
 - pipeline.id: zircolite
   path.config: "/usr/share/logstash/pipeline/zircolite/*.conf"
   pipeline.workers: 3
+- pipeline.id: velociraptor
+  path.config: "/usr/share/logstash/pipeline/velociraptor/*.conf"
+  pipeline.workers: 3

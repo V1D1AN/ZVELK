@@ -138,11 +138,12 @@ services:
     volumes:
       - certs:/usr/share/certificates:ro
       - zircolite:/usr/share/logstash/zircolite:rw
+      - velociraptor_extracted:/usr/share/logstash/velociraptor:rw
       - ./logstash/config/pipelines.yml:/usr/share/logstash/config/pipelines.yml:ro
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/config/jvm.options:/usr/share/logstash/config/jvm.options:ro
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
-      - ./logstash/templates:/usr/share/logstash/templates:ro
+      - ./logstash/template:/usr/share/logstash/template:ro
     logging:
       driver: "json-file"
       options:
@@ -154,7 +155,7 @@ services:
       - "5044:5044"
 
   replay:
-    image: v1d1an/replay:1.0
+    image: v1d1an/replay:1.1
     container_name: replay
     hostname: replay
     restart: always
@@ -170,6 +171,8 @@ services:
       - ./replay/replay.sh:/data/replay.sh
       - zircolite:/evtx
       - upload:/pcap
+      - velociraptor_upload:/velociraptor
+      - velociraptor_extracted:/extracted
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - zvelk
@@ -427,6 +430,8 @@ volumes:
    velociraptor:
     external: false
    velociraptor_upload:
+    external: false
+   velociraptor_extracted:
     external: false
    mysql:
     external: false
