@@ -6,7 +6,7 @@ subtitle: "ZVELK"
 # icon: "fas fa-skull-crossbones" # Optional icon
 
 header: true
-footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/V1D1AN/ZVELK"><i class="fab fa-github-alt"></i></a></p>' # set false if you want to hide it.
+footer: false
 columns: 5
 # Optional theme customization
 theme: default
@@ -57,7 +57,7 @@ services:
     icon: "fas fa-fingerprint"
     items:
       - name: "Spiderfoot"
-        logo: "https://github.com/smicallef/spiderfoot/blob/master/spiderfoot/static/img/spiderfoot-icon.png?raw=true"
+        logo: "/assets/icons/spiderfoot.png"
         tag: "app"
         url: "https://s1em_hostname/spiderfoot/"
         target: "_blank" # optional html a tag target attribute
@@ -66,12 +66,12 @@ services:
     icon: "fas fa-sitemap"
     items:
       - name: "Velociraptor"
-        logo: "https://repository-images.githubusercontent.com/126576769/4da42780-92cf-11e9-8947-d23162406860"
+        logo: "/assets/icons/velociraptor.png"
         tag: "app"
         url: "https://s1em_hostname/velociraptor/"
         target: "_blank" # optional html a tag target attribute
       - name: "Zircolite"
-        logo: "https://github.com/wagga40/Zircolite/raw/master/pics/zircolite_400.png"
+        logo: "/assets/icons/zircolite.png"
         tag: "app"
         url: "https://s1em_hostname/kibana/app/dashboards#/view/832a98e0-9ef0-11ed-bedc-f9813e7df557"
         target: "_blank" # optional html a tag target attribute
@@ -80,17 +80,17 @@ services:
     icon: "fas fa-tools"
     items:
       - name: "CyberChef"
-        logo: "https://www.gchq.gov.uk/images/CyberChef768x512.jpg"
+        logo: "/assets/icons/cyberchef.jpg"
         tag: "app"
         url: "https://s1em_hostname/cyberchef/"
         target: "_blank" # optional html a tag target attribute
       - name: "CodiMD"
-        logo: "https://cdn.futura-sciences.com/buildsv6/images/wide1920/4/b/e/4be0f23a59_122541_markdown.jpg"
+        logo: "/assets/icons/codimd.jpg"
         tag: "app"
         url: "https://s1em_hostname/codimd/"
         target: "_blank" # optional html a tag target attribute
       - name: "StartMe"
-        logo: "https://c.start.me/assets/favicons/favicon-256-30ad53fce117b8776ce0b85ba1a147f770c010f7a8fa33d423e65e98abd69f35.png"
+        logo: "/assets/icons/startme.png"
         tag: "site"
         tagstyle: "is-success"
         url: "https://start.me/p/6r66da/cybersecurity"
@@ -100,12 +100,12 @@ services:
     icon: "fas fa-cloud-arrow-up"
     items:
       - name: "Zircolite"
-        logo: "https://fileproinfo.com/images/pcap_file_extension.png"
+        logo: "/assets/icons/evtx.png"
         tag: "app"
         url: "https://s1em_hostname/zircolite/"
         target: "_blank" # optional html a tag target attribute
       - name: "Velociraptor"
-        logo: "https://fileproinfo.com/images/pcap_file_extension.png"
+        logo: "/assets/icons/zip.png"
         tag: "app"
         url: "https://s1em_hostname/velociraptor-upload/"
         target: "_blank" # optional html a tag target attribute
